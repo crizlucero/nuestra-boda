@@ -1,0 +1,9 @@
+﻿@model nuestra_boda.Core.Models.Events.EventsModel
+
+<div id="intro-section">
+    @Model.TipoEvento
+</div>
+<div></div>
+<div id="microevents-section">
+    @await Html.PartialAsync("Microeventos")
+</div>

@@ -1,0 +1,23 @@
+﻿@model nuestra_boda.Core.Models.Users.UserModel
+
+@{
+    ViewData["Title"] = "Inicio de Sesión";
+}
+
+<h1>Inicio de Sesión</h1>
+
+<div>
+    <h4>Iniciar sesión</h4>
+    <hr />
+    <dl class="row">
+        <dd class = "col-sm-10">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Correo electrónico" })
+        </dd>
+        <dd class = "col-sm-10">
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Contraseña" })
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Iniciar sesión", "Login") 
+</div>

@@ -1,0 +1,14 @@
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\bin\Debug\net5.0\nuestra-boda.Core.deps.json
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\bin\Debug\net5.0\nuestra-boda.Core.dll
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\bin\Debug\net5.0\ref\nuestra-boda.Core.dll
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\bin\Debug\net5.0\nuestra-boda.Core.pdb
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra_boda.Core.Properties.Resources.resources
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra-boda.Core.csproj.GenerateResource.cache
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra-boda.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra-boda.Core.AssemblyInfoInputs.cache
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra-boda.Core.AssemblyInfo.cs
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra-boda.Core.csproj.CoreCompileInputs.cache
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra-boda.Core.dll
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\ref\nuestra-boda.Core.dll
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra-boda.Core.pdb
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Core\obj\Debug\net5.0\nuestra-boda.Core.csproj.AssemblyReference.cache
