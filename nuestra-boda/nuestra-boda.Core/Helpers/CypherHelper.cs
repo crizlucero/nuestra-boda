@@ -14,9 +14,9 @@ namespace nuestra_boda.Core.Helpers
             try
             {
                 string ToReturn = "";
-                byte[] secretkeyByte = { };
+                byte[] secretkeyByte = Array.Empty<byte>();
                 secretkeyByte = Encoding.UTF8.GetBytes(SecretKey);
-                byte[] publickeybyte = { };
+                byte[] publickeybyte = Array.Empty<byte>();
                 publickeybyte = Encoding.UTF8.GetBytes(PublicKey);
                 MemoryStream ms = null;
                 CryptoStream cs = null;
@@ -42,15 +42,15 @@ namespace nuestra_boda.Core.Helpers
             try
             {
                 string ToReturn = "";
-                byte[] privatekeyByte = { };
+                byte[] privatekeyByte = Array.Empty<byte>();
                 privatekeyByte = Encoding.UTF8.GetBytes(SecretKey);
-                byte[] publickeybyte = { };
+                byte[] publickeybyte = Array.Empty<byte>();
                 publickeybyte = Encoding.UTF8.GetBytes(PublicKey);
                 MemoryStream ms = null;
                 CryptoStream cs = null;
                 byte[] inputbyteArray = new byte[encryptedText.Replace(" ", "+").Length];
                 inputbyteArray = Convert.FromBase64String(encryptedText.Replace(" ", "+"));
-                using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+                using (DESCryptoServiceProvider des = new ())
                 {
                     ms = new MemoryStream();
                     cs = new CryptoStream(ms, des.CreateDecryptor(publickeybyte, privatekeyByte), CryptoStreamMode.Write);

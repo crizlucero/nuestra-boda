@@ -19,7 +19,7 @@ namespace nuestra_boda.Core.Helpers
                 foreach (KeyValuePair<string, object> sqlParameter in sqlParameters)
                     command.Parameters.AddWithValue(sqlParameter.Key, sqlParameter.Value ?? DBNull.Value);
                 DataTable dt = new();
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                using (MySqlDataAdapter adapter = new (command))
                     adapter.Fill(dt);
                 //MySqlDataReader reader = command.ExecuteReader();
 

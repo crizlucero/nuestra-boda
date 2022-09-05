@@ -25,7 +25,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net5.0"
         ],
         "sources": {
           "C:\\Nugets": {},
@@ -35,8 +35,8 @@
           "https://www.myget.org/F/nubecti/auth/ef20de95-b699-4171-854a-354c568526a7/api/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -47,8 +47,8 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "MySql.Data": {
               "target": "Package",
@@ -95,7 +95,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0"
+          "net5.0"
         ],
         "sources": {
           "C:\\Nugets": {},
@@ -105,8 +105,8 @@
           "https://www.myget.org/F/nubecti/auth/ef20de95-b699-4171-854a-354c568526a7/api/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {
               "C:\\Users\\Christian.Lucero\\Documents\\Personal\\nuestra-boda\\nuestra-boda\\nuestra-boda.Core\\nuestra-boda.Core.csproj": {
                 "projectPath": "C:\\Users\\Christian.Lucero\\Documents\\Personal\\nuestra-boda\\nuestra-boda\\nuestra-boda.Core\\nuestra-boda.Core.csproj"
@@ -121,12 +121,12 @@
         }
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[5.0.2, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

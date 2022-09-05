@@ -11,7 +11,7 @@ namespace nuestra_boda.Core.Models.Users
         static readonly DBHelper db = new();
 
 
-        public long IDInvitado { get => IDInvitado; set => IDInvitado = 0; }
+        public long IDInvitado { get; set; }
         public string Nombre { get; set; }
         public int NumeroInvitados { get; set; }
         public string Clave { get => Clave; set => Clave = CodeHelper.GenerateCode(4); }
