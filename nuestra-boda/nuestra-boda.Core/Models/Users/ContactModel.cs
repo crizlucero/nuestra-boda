@@ -1,6 +1,8 @@
 ﻿using nuestra_boda.Core.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace nuestra_boda.Core.Models.Users
 {
@@ -30,22 +32,19 @@ namespace nuestra_boda.Core.Models.Users
             return false;
         }
 
-        public static List<ContactModel> GetContacts(long ForeignID, string Table, string Column)
+        public static IList<ContactModel> GetContacts(long ForeignID, string Table, string Column)
         {
             try
             {
-                List<ContactModel> contacts = new();
                 Dictionary<string, object> parameters = new() { { $"@Foreign", ForeignID } };
-                var reader = db.Reader($"SELECT IDContacto, Contacto, Tipo FROM {Table} where {Column} = @Foreign;", parameters);
-                while (reader.Read())
-                {
-                    contacts.Add(new ContactModel
+                DataTable dt = db.Reader($"SELECT IDContacto, Contacto, Tipo FROM {Table} where {Column} = @Foreign;", parameters);
+                IList<ContactModel> contacts = dt.AsEnumerable().Select(row =>
+                    new ContactModel
                     {
-                        IDContacto = (long)reader.GetDouble(0),
-                        Contacto = reader.GetString(1),
-                        Tipo = reader.GetString(2)
-                    });
-                }
+                        IDContacto = row.Field<long>("IDContacto"),
+                        Contacto = row.Field<string>("Contacto"),
+                        Tipo = row.Field<string>("Tipo")
+                    }).ToList();
                 return contacts;
             }
             catch (Exception ex)

@@ -21,7 +21,7 @@ namespace nuestra_boda.Core.Helpers
                 MemoryStream ms = null;
                 CryptoStream cs = null;
                 byte[] inputbyteArray = Encoding.UTF8.GetBytes(plainText);
-                using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+                using (DESCryptoServiceProvider des = new())
                 {
                     ms = new MemoryStream();
                     cs = new CryptoStream(ms, des.CreateEncryptor(publickeybyte, secretkeyByte), CryptoStreamMode.Write);

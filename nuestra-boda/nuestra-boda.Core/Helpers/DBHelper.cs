@@ -2,6 +2,7 @@
 using nuestra_boda.Core.Models.BD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace nuestra_boda.Core.Helpers
 {
@@ -9,24 +10,32 @@ namespace nuestra_boda.Core.Helpers
     {
         public DBHelper() : base() { }
 
-        public MySqlDataReader Reader(string query, Dictionary<string, object> sqlParameters)
+        public DataTable Reader(string query, Dictionary<string, object> sqlParameters)
         {
             try
             {
+                conn.Open();
                 CreateCommand(query);
                 foreach (KeyValuePair<string, object> sqlParameter in sqlParameters)
                     command.Parameters.AddWithValue(sqlParameter.Key, sqlParameter.Value ?? DBNull.Value);
-
-                MySqlDataReader reader = command.ExecuteReader();
+                DataTable dt = new();
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    adapter.Fill(dt);
+                //MySqlDataReader reader = command.ExecuteReader();
 
                 command.Dispose();
+                
 
-                return reader;
+                return dt;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return null;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -36,6 +45,7 @@ namespace nuestra_boda.Core.Helpers
 
             try
             {
+                conn.Open();
                 CreateCommand(query);
                 foreach (KeyValuePair<string, object> sqlParameter in sqlParameters)
                     command.Parameters.AddWithValue(sqlParameter.Key, sqlParameter.Value ?? (object)DBNull.Value);
@@ -52,6 +62,10 @@ namespace nuestra_boda.Core.Helpers
                 Console.WriteLine(e.Message);
 
                 return -1;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

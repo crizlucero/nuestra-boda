@@ -124,12 +124,12 @@
     <value>nuestra-boda</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Ch1nv35l!</value>
+    <value>Ch1nv35l!.</value>
   </data>
   <data name="ServerIP" xml:space="preserve">
-    <value>127.0.0.1</value>
+    <value>ec2-3-19-238-7.us-east-2.compute.amazonaws.com</value>
   </data>
   <data name="User" xml:space="preserve">
-    <value>crizlucer</value>
+    <value>root</value>
   </data>
 </root>

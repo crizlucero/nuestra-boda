@@ -1,6 +1,8 @@
 ﻿using nuestra_boda.Core.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace nuestra_boda.Core.Models.Events
 {
@@ -15,7 +17,7 @@ namespace nuestra_boda.Core.Models.Events
         public string Tipo { get; set; }
         public DateTime Fecha { get; set; }
         public EventsModel Evento { get; set; }
-       
+
 
         public bool AddMicroevent()
         {
@@ -35,25 +37,22 @@ namespace nuestra_boda.Core.Models.Events
             return false;
         }
 
-        public static List<MicroEventsModel> GetMicroEventos(string EventCode)
+        public static IList<MicroEventsModel> GetMicroEventos(string EventCode)
         {
             try
             {
-                List<MicroEventsModel> microeventos = new();
-                Dictionary<string, object> parameters = new() { { "@EventCode", EventCode} };
-                var reader = db.Reader($"SELECT m.IDMicroevento, m.Latitud, m.Longitud, m.Nombre, m.Tipo, m.Fecha FROM Microeventos m left join Eventos e on e.IDEvento = m.IDEvento where e.EventCode = @EventCode;", parameters);
-                while (reader.Read())
-                {
-                    microeventos.Add(new MicroEventsModel
+                Dictionary<string, object> parameters = new() { { "@EventCode", EventCode } };
+                DataTable dt = db.Reader($"SELECT m.IDMicroevento, m.Latitud, m.Longitud, m.Nombre, m.Tipo, m.Fecha FROM Microeventos m left join Eventos e on e.IDEvento = m.IDEvento where e.EventCode = @EventCode;", parameters);
+                IList<MicroEventsModel> microeventos = dt.AsEnumerable().Select(row =>
+                    new MicroEventsModel
                     {
-                        IDMicroevento = (long)reader.GetDouble(0),
-                        Latitud = reader.GetString(1),
-                        Longitud = reader.GetString(2),
-                        Nombre = reader.GetString(3),
-                        Tipo = reader.GetString(4),
-                        Fecha = reader.GetDateTime(5)
-                    });
-                }
+                        IDMicroevento = row.Field<long>("IDMicroevento"),
+                        Latitud = row.Field<string>("Latitud"),
+                        Longitud = row.Field<string>("Longitud"),
+                        Nombre = row.Field<string>("Nombre"),
+                        Tipo = row.Field<string>("Tipo"),
+                        Fecha = row.Field<DateTime>("Fecha")
+                    }).ToList();
                 return microeventos;
             }
             catch (Exception ex)

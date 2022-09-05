@@ -2,6 +2,7 @@
 using nuestra_boda.Core.Models.Events;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace nuestra_boda.Core.Models.Users
 {
@@ -17,7 +18,7 @@ namespace nuestra_boda.Core.Models.Users
         public bool Estatus { get; set; }
         public UserModel Usuario { get; set; }
         public EventsModel Evento { get; set; }
-        public List<ContactModel> Contacto { get => Contacto; set => Contacto = IDInvitado != 0 ? ContactModel.GetContacts(IDInvitado, "ContactoInvitado", "IDInvitado") : null; }
+        public IList<ContactModel> Contacto { get => Contacto; set => Contacto = IDInvitado != 0 ? ContactModel.GetContacts(IDInvitado, "ContactoInvitado", "IDInvitado") : null; }
 
         public bool AddPersona()
         {
@@ -42,13 +43,10 @@ namespace nuestra_boda.Core.Models.Users
             try
             {
                 Dictionary<string, object> parameters = new() { { "@IDInvitado", IDInvitado }, { "@Clave", Clave } };
-                var reader = db.Reader($"SELECT IDInvitado, NumeroInvitados, Estatus  FROM Invitados where IDInvitado = @Invitado and Clave = @Clave;", parameters);
-                if (reader.Read())
-                {
-                    IDInvitado = (long)reader.GetDouble(0);
-                    NumeroInvitados = reader.GetInt32(1);
-                    Estatus = reader.GetBoolean(2);
-                }
+                DataTable dt = db.Reader($"SELECT IDInvitado, NumeroInvitados, Estatus  FROM Invitados where IDInvitado = @Invitado and Clave = @Clave;", parameters);
+                IDInvitado = dt.Rows[0].Field<long>("IDInvitado");
+                NumeroInvitados = dt.Rows[0].Field<int>("NumeroInvitados");
+                Estatus = dt.Rows[0].Field<bool>("Estatus");
                 return true;
             }
             catch (Exception ex)

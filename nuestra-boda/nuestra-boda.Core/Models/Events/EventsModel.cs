@@ -1,6 +1,8 @@
 ﻿using nuestra_boda.Core.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace nuestra_boda.Core.Models.Events
 {
@@ -8,25 +10,28 @@ namespace nuestra_boda.Core.Models.Events
     {
         static readonly DBHelper db = new();
 
-        public long IDEvento { get; set; }
-        public string EventCode { get => EventCode; set => EventCode = CodeHelper.GenerateCode(); }
+        public uint IDEvento { get; set; }
+        public string EventCode { get; set; }
         public DateTime Fecha { get; set; }
-        public EventType TipoEvento { get; set; }
-        public List<MicroEventsModel> MicroEventos { get; set; }
+        public string TipoEvento { get; set; }
+        //public List<MicroEventsModel> MicroEventos { get; set; }
 
         public bool AddEvent()
         {
+            int idevento;
             try
             {
                 Dictionary<string, object> parameters = new() { { "@EventCode", EventCode }, { "@Fecha", Fecha }, { "@TipoEvento", TipoEvento } };
-                IDEvento = db.InsertQuery("INSERT INTO Eventos (EventCode, Fecha)", parameters);
+                idevento = (int)db.InsertQuery("INSERT INTO Eventos (EventCode, Fecha)", parameters);
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message, ex.InnerException);
             }
-            if (IDEvento != -1)
+            
+            if (idevento != -1)
             {
+                IDEvento = (uint)idevento;
                 return true;
             }
             return false;
@@ -37,13 +42,10 @@ namespace nuestra_boda.Core.Models.Events
             try
             {
                 Dictionary<string, object> parameters = new() { { "@EventCode", EventCode } };
-                var reader = db.Reader($"SELECT IDEvento, Fecha, TipoEvento FROM Eventos where EventCode = @EventCode;", parameters);
-                if (reader.Read())
-                {
-                    IDEvento = (long)reader.GetDouble(0);
-                    Fecha = reader.GetDateTime(1);
-                    TipoEvento = (EventType)Enum.Parse(typeof(EventType), reader.GetString(2));
-                }
+                DataTable dt = db.Reader($"SELECT IDEvento, Fecha, TipoEvento FROM Eventos where EventCode = @EventCode;", parameters);
+                IDEvento = dt.Rows[0].Field<uint>("IDEvento");
+                TipoEvento = dt.Rows[0].Field<string>("TipoEvento");
+                Fecha = dt.Rows[0].Field<DateTime>("Fecha");
                 return true;
             }
             catch (Exception ex)
@@ -52,22 +54,19 @@ namespace nuestra_boda.Core.Models.Events
             }
         }
 
-        public static List<EventsModel> GetEventos(long IDPersona)
+        public static IList<EventsModel> GetEventos(long IDPersona)
         {
             try
             {
-                List<EventsModel> Eventos = new();
                 Dictionary<string, object> parameters = new() { { "@IDPersona", IDPersona } };
-                var reader = db.Reader($"SELECT e.IDEvento, e.Fecha, e.TipoEvento FROM Eventos JOIN EventosPersonas ep ON e.IDEvento = ep.IDEvento where IDPersona = @IDPersona;", parameters);
-                while (reader.Read())
+                DataTable dt = db.Reader($"SELECT e.IDEvento, e.Fecha, e.TipoEvento FROM Eventos JOIN EventosPersonas ep ON e.IDEvento = ep.IDEvento where IDPersona = @IDPersona;", parameters);
+                IList<EventsModel> Eventos = dt.AsEnumerable().Select(row =>
+                new EventsModel
                 {
-                    Eventos.Add(new EventsModel
-                    {
-                        IDEvento = (long)reader.GetDouble(0),
-                        Fecha = reader.GetDateTime(1),
-                        TipoEvento = (EventType)Enum.Parse(typeof(EventType), reader.GetString(2))
-                    });
-                }
+                    IDEvento = row.Field<uint>("IDEvento"),
+                    TipoEvento = row.Field<string>("TipoEvento"),
+                    Fecha = row.Field<DateTime>("Fecha")
+                }).ToList();
                 return Eventos;
             }
             catch (Exception ex)

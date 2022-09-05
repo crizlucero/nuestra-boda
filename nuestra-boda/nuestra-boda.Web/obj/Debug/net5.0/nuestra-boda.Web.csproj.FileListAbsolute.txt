@@ -132,3 +132,5 @@ C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-b
 C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Web\obj\Debug\net5.0\Razor\Views\Events\Microeventos.cshtml.g.cs
 C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Web\obj\Debug\net5.0\Razor\Views\Admin\Login.cshtml.g.cs
 C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Web\obj\Debug\net5.0\Razor\Views\Admin\AddPersona.cshtml.g.cs
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Web\obj\Debug\net5.0\Razor\Views\Admin\AddEventos.cshtml.g.cs
+C:\Users\Christian.Lucero\Documents\Personal\nuestra-boda\nuestra-boda\nuestra-boda.Web\bin\Debug\net5.0\libman.json

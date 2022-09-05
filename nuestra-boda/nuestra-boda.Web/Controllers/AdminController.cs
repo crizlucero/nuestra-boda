@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using nuestra_boda.Core.Models.Events;
 using nuestra_boda.Core.Models.Users;
+using System;
 
 namespace nuestra_boda.Web.Controllers
 {
@@ -54,12 +55,19 @@ namespace nuestra_boda.Web.Controllers
         [HttpPost]
         public JsonResult Login(UserModel usuario)
         {
-            usuario.GetUser();
-            PersonaModel persona = new() { UserModel = usuario };
-            persona.GetPersona();
-            HttpContext.Session.SetString("UsuarioSession", JsonConvert.SerializeObject(persona));
+            try
+            {
+                usuario.GetUser();
+                PersonaModel persona = new() { UserModel = usuario };
+                persona.GetPersona();
+                HttpContext.Session.SetString("UsuarioSession", JsonConvert.SerializeObject(persona));
 
-            return Json(persona);
+                return Json(new { success = true, data = persona });
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, message = e.Message });
+            }
         }
         #endregion
     }
