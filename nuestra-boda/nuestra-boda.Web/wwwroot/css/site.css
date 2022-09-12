@@ -64,6 +64,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     background-color: #FFFFF0;
+    color: #CC7722;
 }
 
 .footer {
@@ -83,12 +84,112 @@ div {
 }
 
 .titulo {
+    font-family: "Edwardian Script ITC", sans-serif;
+    font-size: 110px;
 }
 
 .subtitulo {
+    font-size: 30px;
+}
+
+.intro {
+}
+
+#intro .saludo {
+    font-size: 35px;
+    text-align: center;
+    padding: 0 150px 0 150px;
+    display: block;
+    margin-top: 5%;
+}
+
+#intro .anuncio {
+    font-family: "Edwardian Script ITC", sans-serif;
+    font-size: 90px;
+    text-align: center;
+    display: block;
+    margin: 3% 0 0 20%;
 }
 
 #intro-section {
     font-family: "Edwardian Script ITC", sans-serif;
-    font-size: 70px;
+    font-size: 90px;
+    color: white;
+}
+
+#top-parallax {
+    background-image: url("../imgs/RPF_principal2.jpg");
+    min-height: 915px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 25%;
+}
+
+.content {
+    padding-top: 57px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+    .sticky + .container {
+        padding-top: 57px;
+    }
+
+    .sticky + .content {
+        padding-top: 57px;
+    }
+
+#imagen-anillo {
+    margin: 30px 50px 0 0;
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+}
+
+.grid-item {
+    width: 450px;
+    margin: 0 10px 0 0;
+}
+
+    .grid-item p {
+        margin-bottom: 0;
+    }
+
+    .grid-item form {
+        text-align: left;
+    }
+
+        .grid-item form p {
+            text-align: left;
+        }
+
+.grid-item-image {
+}
+
+.grid-item-text {
+}
+
+    .grid-item-text p {
+        text-align: left;
+    }
+
+#microevents-section p {
+    margin-bottom: 0;
+}
+
+#microevents-section div {
+    margin-top: 10px;
+    color: #CC7722;
+}
+
+.grid-container-three {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
 }

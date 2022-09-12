@@ -79,7 +79,7 @@ namespace nuestra_boda.Core.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ch1nv35l!..
+        ///   Busca una cadena traducida similar a Ch1nv35l!.
         /// </summary>
         internal static string Password {
             get {
@@ -88,7 +88,7 @@ namespace nuestra_boda.Core.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ec2-3-19-238-7.us-east-2.compute.amazonaws.com.
+        ///   Busca una cadena traducida similar a localhost.
         /// </summary>
         internal static string ServerIP {
             get {

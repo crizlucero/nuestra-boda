@@ -16,9 +16,9 @@ namespace nuestra_boda.Web.Controllers
         /// <returns></returns>
         public ActionResult Index(string EventCode = "MR221122")
         {
-            EventsModel model = new() { EventCode = EventCode };
-            model.GetEvento();
-            return View(model);
+            //EventsModel model = new() { EventCode = EventCode };
+            //model.GetEvento();
+            return View();//model);
         }
 
         public ActionResult Microeventos(string EventCode = "")
