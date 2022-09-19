@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using nuestra_boda.Core.Models.Events;
+using nuestra_boda.Core.Models.Users;
 using System.Collections.Generic;
 
 namespace nuestra_boda.Web.Controllers
@@ -14,11 +15,17 @@ namespace nuestra_boda.Web.Controllers
         /// </summary>
         /// <param name="EventCode"></param>
         /// <returns></returns>
-        public ActionResult Index(string EventCode = "MR221122")
+        public ActionResult Index(long idInvitado = 1)
         {
-            //EventsModel model = new() { EventCode = EventCode };
-            //model.GetEvento();
-            return View();//model);
+            InvitadosModel model = new() { IDInvitado = idInvitado };
+            model.GetInvitado();
+            return View(model);
+        }
+
+        public JsonResult Confirmar(ConfirmadosModel confirmado)
+        {
+            bool success = confirmado.ConfirmarInvitacion();
+            return Json(new { success });
         }
 
         public ActionResult Microeventos(string EventCode = "")

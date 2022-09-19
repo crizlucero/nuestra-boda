@@ -35,3 +35,41 @@ $("#btnLogin").click(function () {
         }
     });
 });
+
+$("#btnConfirmar").click(function () {
+    $.ajax({
+        type: 'POST',
+        url: '/Events/Confirmar',
+        dataType: 'json',
+        data: {
+            IDInvitado: $('#idInvitado').val(),
+            Confirmacion: $('input[name=radAsisto]:checked').val(),
+            NumeroInvitados: $('#numInvitadosAdultos').val(),
+            NumeroNinios: $('#numInvitadosNinios').val()
+        },
+        success: function (data) {
+            if (data.success) {
+                $(".success").delay(1500).fadeIn();
+                $(".success").delay(1500).fadeOut();
+            } else { $(".alert").show(); }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            $("#divLoading").hide();
+            if (jqXHR.status === 0) {
+                alert('Not connect: Verify Network.');
+            } else if (jqXHR.status == 404) {
+                alert('Requested page not found [404]');
+            } else if (jqXHR.status == 500) {
+                alert('Internal Server Error [500].');
+            } else if (textStatus === 'parsererror') {
+                alert('Requested JSON parse failed.');
+            } else if (textStatus === 'timeout') {
+                alert('Time out error.');
+            } else if (textStatus === 'abort') {
+                alert('Ajax request aborted.');
+            } else {
+                alert('Uncaught Error: ' + jqXHR.responseText);
+            }
+        }
+    });
+});

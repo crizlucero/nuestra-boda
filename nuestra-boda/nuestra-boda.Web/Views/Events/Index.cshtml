@@ -1,4 +1,4 @@
-﻿
+﻿@model nuestra_boda.Core.Models.Users.InvitadosModel
 <div id="intro-section">
     <div id="top-parallax">
         <span class="titulo">Marisol y Ryan</span>
@@ -13,10 +13,13 @@
         <div class="grid-item-image"><img id="imagen-anillo" src="~/imgs/RPF_anillo.jpg" /></div>
         <div class="grid-item-text">
             <span class="anuncio">¡Nos vamos a casar!</span>
-            <p>Con mucha alegría, queremos que nos acompañes en el comienzo de esta, nuestra nueva etapa de vida</p>
+            <p>Con mucha alegría, queremos que nos acompañes en el comienzo de esta, nuestra nueva etapa de vida este 12 de Noviembre del 2022 en Hermosillo, Sonora.</p>
             <p>No puedes faltar</p>
-            <p>NOMBRE</p>
-            <p>2 PASES ADULTO _ 1 NIÑO OCERO</p>
+            <p><b>@Model.Invitado</b></p>
+            <p>
+                Pases: <b>@Model.NumeroRecepciones</b> Adultos @if (Model.NumeroNinios > 0)
+                {<span> - <b>@Model.NumeroNinios</b> Niños </span>}
+            </p>
             <p>¡Nos hará muy feliz que nos acompañes en este día de celebración!</p>
         </div>
     </div>
@@ -27,7 +30,8 @@
         <div class="subtitulo">Ceremonia Religiosa</div>
         <img src="~/imgs/icons/church.png" />
         <span>Parroquia de Nuestra Señora del Carmen</span>
-        <p>12:00 pm, 12 Noviembre 2022</p>
+        <p>12 Noviembre 2022 12:00 hrs.</p>
+        <p></p>
         <p><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d544.8364508302838!2d-110.94829929705597!3d29.076390095270256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce85b28377526f%3A0x3d173df5c97983c0!2sParroquia%20Nuestra%20Se%C3%B1ora%20del%20Carmen!5e0!3m2!1ses-419!2smx!4v1654789046722!5m2!1ses-419!2smx">Ver ubicación</a></p>
     </div>
     <div id="EventoCivil">
@@ -36,21 +40,21 @@
         <span>Hacienda Real San Miguel</span>
         <p>Carr. al Real del Alamito Km. 1</p>
         <p>El Tronconal, Hermosillo, Sonora</p>
-        <p>8:00 pm, 12 Noviembre 2022</p>
+        <p>12 Noviembre 2022 20:00 hrs.</p>
         <p><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.214642717188!2d-110.8536741572895!3d29.18780697697541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce89b4e885cdd5%3A0x509409c3aca0154c!2sHacienda%20Real%20San%20Miguel!5e0!3m2!1ses-419!2smx!4v1649701857853!5m2!1ses-419!2smx"> Ver ubicación</a><p></p>
     </div>
     <div id="EventoRecepcion">
         <div class="subtitulo">Recepción</div>
         <img src="~/imgs/icons/auto_awesome.png" />
         <span>Hacienda Real San Miguel</span>
-        <p>9:00 pm, 12 Noviembre 2022</p>
+        <p>12 Noviembre 2022 21:00 hrs.</p>
         <p><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.214642717188!2d-110.8536741572895!3d29.18780697697541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce89b4e885cdd5%3A0x509409c3aca0154c!2sHacienda%20Real%20San%20Miguel!5e0!3m2!1ses-419!2smx!4v1649701857853!5m2!1ses-419!2smx"> Ver ubicación</a><p></p>
     </div>
     <div id="EventoVals">
         <div class="subtitulo">Vals</div>
         <img src="~/imgs/icons/sports_kabaddi.png" />
         <span>Hacienda Real San Miguel</span>
-        <p>9:40 pm, 12 Noviembre 2022</p>
+        <p>12 Noviembre 2022 21:40 hrs.</p>
         <p><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.214642717188!2d-110.8536741572895!3d29.18780697697541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce89b4e885cdd5%3A0x509409c3aca0154c!2sHacienda%20Real%20San%20Miguel!5e0!3m2!1ses-419!2smx!4v1649701857853!5m2!1ses-419!2smx"> Ver ubicación</a><p></p>
     </div>
     <div id="EventoCena">
@@ -108,24 +112,31 @@
             <p>De corazón, gracias</p>
         </div>
         <div class="grid-item">
+            <div class="subtitulo">¿Asistirás a Nuestra Boda?</div>
+            <hr />
             <div>
-                <form>
-                    <div class="subtitulo">¿Asistirás a Nuestra Boda?</div>
-                    <hr />
-                    <input type="radio" id="radAsisto" value="1" />Asistiré
-                    <input type="radio" id="radAsisto" value="0" />No asistiré
-                    <br />
-                    <p>Acompañantes:</p>
-                    <p>Adultos <input type="number" id="numInvitadosAdultos" value="1" min="0" /></p>
-                    <p>Niños <input type="number" id="numInvitadosNinios" value="0" min="0" /></p>
-                    <br />
-                    <span>¡Felicita a los novios!</span>
-                    <br />
-                    <textarea id="txtFelicitaciones"></textarea>
-                    <br />
-                    <input type="submit" value="Confirmar" />
-                </form>
+                <input type="hidden" id="idInvitado" value="@Model.IDInvitado" />
+                <input type="radio" id="radAsisto" name="radAsisto" value="1" class="radAsisto" checked="checked" /><span class="txtAsisto">Asistiré </span>
+                <br />
+                <input type="radio" id="radAsisto" name="radAsisto" value="0" class="radAsisto" /><span class="txtAsisto">No asistiré</span>
+                <br />
+                <p class="txtAsisto">Acompañantes:</p>
+                <p class="txtAsisto">Adultos <input type="number" id="numInvitadosAdultos" value="@Model.NumeroRecepciones" min="1" max="@Model.NumeroRecepciones" /></p>
+                @if (Model.NumeroNinios != 0)
+                {
+                    <p class="txtAsisto">Niños <input type="number" id="numInvitadosNinios" value="@Model.NumeroNinios" min="0" max="@Model.NumeroNinios" /></p>
+                }
+                <br />
+                <button id="btnConfirmar">Confirmar</button>
             </div>
         </div>
     </div>
+    <div class="alert">
+        <strong>Existió un problema!</strong> ponte en contaco con Marisol o Ryan.
+    </div>
+
+    <div class="alert success">
+        <strong>Gracias por confirmar!</strong>
+    </div>
 </div>
+

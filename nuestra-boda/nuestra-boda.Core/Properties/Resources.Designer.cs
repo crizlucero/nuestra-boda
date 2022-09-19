@@ -70,7 +70,7 @@ namespace nuestra_boda.Core.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a nuestra-boda.
+        ///   Busca una cadena traducida similar a nuestraboda.
         /// </summary>
         internal static string Origin {
             get {
