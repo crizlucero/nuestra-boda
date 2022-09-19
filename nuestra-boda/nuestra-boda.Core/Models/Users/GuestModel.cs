@@ -14,11 +14,17 @@ namespace nuestra_boda.Core.Models.Users
         public long IDInvitado { get; set; }
         public string Nombre { get; set; }
         public int NumeroInvitados { get; set; }
-        public string Clave { get => Clave; set => Clave = CodeHelper.GenerateCode(4); }
+        public string Clave { get; set; }
         public bool Estatus { get; set; }
         public UserModel Usuario { get; set; }
         public EventsModel Evento { get; set; }
-        public IList<ContactModel> Contacto { get => Contacto; set => Contacto = IDInvitado != 0 ? ContactModel.GetContacts(IDInvitado, "ContactoInvitado", "IDInvitado") : null; }
+        public IList<ContactModel> Contacto { get ; set; }
+
+        public GuestModel()
+        {
+            Clave = CodeHelper.GenerateCode(4);
+            Contacto = IDInvitado != 0 ? ContactModel.GetContacts(IDInvitado, "ContactoInvitado", "IDInvitado") : null;
+        }
 
         public bool AddPersona()
         {
