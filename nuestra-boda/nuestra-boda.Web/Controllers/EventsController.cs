@@ -15,7 +15,7 @@ namespace nuestra_boda.Web.Controllers
         /// </summary>
         /// <param name="EventCode"></param>
         /// <returns></returns>
-        public ActionResult Index(long idInvitado = 1)
+        public ActionResult Index(long idInvitado)
         {
             InvitadosModel model = new() { IDInvitado = idInvitado };
             model.GetInvitado();

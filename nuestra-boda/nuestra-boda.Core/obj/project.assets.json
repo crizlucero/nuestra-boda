@@ -1,27 +1,14 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
-      "BouncyCastle.NetCore/1.8.5": {
+    "net6.0": {
+      "Google.Protobuf/3.19.4": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+          "lib/net5.0/Google.Protobuf.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
-        }
-      },
-      "Google.Protobuf/3.14.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.3",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/Google.Protobuf.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Google.Protobuf.dll": {}
+          "lib/net5.0/Google.Protobuf.dll": {}
         }
       },
       "K4os.Compression.LZ4/1.2.6": {
@@ -88,12 +75,12 @@
           }
         }
       },
-      "MySql.Data/8.0.27": {
+      "MySql.Data/8.0.30": {
         "type": "package",
         "dependencies": {
-          "BouncyCastle.NetCore": "1.8.5",
-          "Google.Protobuf": "3.14.0",
+          "Google.Protobuf": "3.19.4",
           "K4os.Compression.LZ4.Streams": "1.2.6",
+          "Portable.BouncyCastle": "1.9.0",
           "System.Buffers": "4.5.1",
           "System.Configuration.ConfigurationManager": "4.4.1",
           "System.Runtime.CompilerServices.Unsafe": "5.0.0",
@@ -101,14 +88,23 @@
           "System.Text.Encoding.CodePages": "4.4.0"
         },
         "compile": {
-          "lib/net5.0/MySql.Data.dll": {},
-          "lib/net5.0/Ubiety.Dns.Core.dll": {},
-          "lib/net5.0/ZstdNet.dll": {}
+          "lib/net6.0/MySql.Data.dll": {},
+          "lib/net6.0/Ubiety.Dns.Core.dll": {},
+          "lib/net6.0/ZstdNet.dll": {}
         },
         "runtime": {
-          "lib/net5.0/MySql.Data.dll": {},
-          "lib/net5.0/Ubiety.Dns.Core.dll": {},
-          "lib/net5.0/ZstdNet.dll": {}
+          "lib/net6.0/MySql.Data.dll": {},
+          "lib/net6.0/Ubiety.Dns.Core.dll": {},
+          "lib/net6.0/ZstdNet.dll": {}
+        }
+      },
+      "Portable.BouncyCastle/1.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
         }
       },
       "System.Buffers/4.5.1": {
@@ -278,43 +274,21 @@
     }
   },
   "libraries": {
-    "BouncyCastle.NetCore/1.8.5": {
-      "sha512": "6uxsQw2UXrt82VQAWC2td3oBSJjUZ3P4u4DliagB8wf67KsU53V8sW9xwdF+IwZOOZFR0TCZuv/YKZ2BlrfAag==",
+    "Google.Protobuf/3.19.4": {
+      "sha512": "fd07/ykL4O4FhqrZIELm5lmiyOHfdPg9+o+hWr6tcfRdS7tHXnImg/2wtogLzlW2eEmr0J7j6ZrZvaWOLiJbxQ==",
       "type": "package",
-      "path": "bouncycastle.netcore/1.8.5",
+      "path": "google.protobuf/3.19.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "bouncycastle.netcore.1.8.5.nupkg.sha512",
-        "bouncycastle.netcore.nuspec",
-        "lib/Mono/BouncyCastle.Crypto.dll",
-        "lib/Mono/BouncyCastle.Crypto.xml",
-        "lib/MonoAndroid/BouncyCastle.Crypto.dll",
-        "lib/MonoAndroid/BouncyCastle.Crypto.xml",
-        "lib/MonoMac/BouncyCastle.Crypto.dll",
-        "lib/MonoMac/BouncyCastle.Crypto.xml",
-        "lib/MonoTouch/BouncyCastle.Crypto.dll",
-        "lib/MonoTouch/BouncyCastle.Crypto.xml",
-        "lib/net20/BouncyCastle.Crypto.dll",
-        "lib/net20/BouncyCastle.Crypto.xml",
-        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
-        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
-        "lib/xamarinios/BouncyCastle.Crypto.dll",
-        "lib/xamarinios/BouncyCastle.Crypto.xml"
-      ]
-    },
-    "Google.Protobuf/3.14.0": {
-      "sha512": "9AkodyGNmLI+wJJPbwpWLmh4BMHoXDQ9+8qvDPhQQi/BNsleqKMBn3OlyLwC6CALwan2kc5+Cenb8fJSITX3nQ==",
-      "type": "package",
-      "path": "google.protobuf/3.14.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "google.protobuf.3.14.0.nupkg.sha512",
+        "google.protobuf.3.19.4.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
         "lib/net45/Google.Protobuf.pdb",
         "lib/net45/Google.Protobuf.xml",
+        "lib/net5.0/Google.Protobuf.dll",
+        "lib/net5.0/Google.Protobuf.pdb",
+        "lib/net5.0/Google.Protobuf.xml",
         "lib/netstandard1.1/Google.Protobuf.dll",
         "lib/netstandard1.1/Google.Protobuf.pdb",
         "lib/netstandard1.1/Google.Protobuf.xml",
@@ -428,10 +402,10 @@
         "version.txt"
       ]
     },
-    "MySql.Data/8.0.27": {
-      "sha512": "Ef+sH12/nGAiF9yLZFkuXh7vtVvEPiLKyZNJiDk+VBULzLcXj0lmfU7qcmWNCSVX5n6zu5jMV+JaNf1C+a+T8g==",
+    "MySql.Data/8.0.30": {
+      "sha512": "SRoxG9ASRQrqL/JKU9KxaWfkmWtBuw5rA7d9G34Z1w4Aq5YwvxIjuGDOkUSk/H6VOmlZ/wywgBSX9S6btbUAYg==",
       "type": "package",
-      "path": "mysql.data/8.0.27",
+      "path": "mysql.data/8.0.30",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -447,6 +421,10 @@
         "lib/net5.0/MySql.Data.xml",
         "lib/net5.0/Ubiety.Dns.Core.dll",
         "lib/net5.0/ZstdNet.dll",
+        "lib/net6.0/MySql.Data.dll",
+        "lib/net6.0/MySql.Data.xml",
+        "lib/net6.0/Ubiety.Dns.Core.dll",
+        "lib/net6.0/ZstdNet.dll",
         "lib/netstandard2.0/MySql.Data.dll",
         "lib/netstandard2.0/MySql.Data.xml",
         "lib/netstandard2.0/Ubiety.Dns.Core.dll",
@@ -455,8 +433,23 @@
         "lib/netstandard2.1/MySql.Data.xml",
         "lib/netstandard2.1/Ubiety.Dns.Core.dll",
         "lib/netstandard2.1/ZstdNet.dll",
-        "mysql.data.8.0.27.nupkg.sha512",
+        "mysql.data.8.0.30.nupkg.sha512",
         "mysql.data.nuspec"
+      ]
+    },
+    "Portable.BouncyCastle/1.9.0": {
+      "sha512": "eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
+      "type": "package",
+      "path": "portable.bouncycastle/1.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/BouncyCastle.Crypto.dll",
+        "lib/net40/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
+        "portable.bouncycastle.1.9.0.nupkg.sha512",
+        "portable.bouncycastle.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -844,8 +837,8 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
-      "MySql.Data >= 8.0.27"
+    "net6.0": [
+      "MySql.Data >= 8.0.30"
     ]
   },
   "packageFolders": {
@@ -875,7 +868,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Nugets": {},
@@ -885,8 +878,8 @@
         "https://www.myget.org/F/nubecti/auth/ef20de95-b699-4171-854a-354c568526a7/api/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -897,12 +890,12 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "MySql.Data": {
             "target": "Package",
-            "version": "[8.0.27, )"
+            "version": "[8.0.30, )"
           }
         },
         "imports": [
@@ -911,7 +904,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -920,7 +914,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -44,8 +44,8 @@ $("#btnConfirmar").click(function () {
         data: {
             IDInvitado: $('#idInvitado').val(),
             Confirmacion: $('input[name=radAsisto]:checked').val(),
-            NumeroInvitados: $('#numInvitadosAdultos').val(),
-            NumeroNinios: $('#numInvitadosNinios').val()
+            NumeroInvitados: $('select[name=numInvitadosAdultos] option:selected').val(),
+            NumeroNinios: $('select[numInvitadosNinios] option:selected').val()
         },
         success: function (data) {
             if (data.success) {
